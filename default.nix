@@ -41,7 +41,7 @@ with import <nixpkgs> {};
       pname = "ete3";
       version = "3.1.1";
 
-      src = pkgs.python3Packages.fetchPypi{
+      src = pkgs.python3Packages.fetchPypi {
         inherit version; inherit pname;
         sha256 = "11f3p5zkgjvsxi8kbscsaf286qx7vywwdiqk9gdgndka955ks2l7";
       };
@@ -52,8 +52,8 @@ with import <nixpkgs> {};
         lxml
         six
       ];
-      doCheck = false;
-      shellHook = wrapQtAppsHook;
+
+      nativeBuildInputs =  [ cmake wrapQtAppsHook ];
 
     };
 
