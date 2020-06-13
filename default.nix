@@ -53,7 +53,7 @@ with import <nixpkgs> {};
         six
       ];
 
-      nativeBuildInputs =  [ cmake wrapQtAppsHook ];
+      nativeBuildInputs = with pkgs; [ cmake wrapQtAppsHook ];
 
     };
 
