@@ -1,5 +1,6 @@
 with import <nixpkgs> {};
 
+
 ( let
     newPlotly = pkgs.python3Packages.buildPythonPackage rec {
       pname = "plotly";
@@ -37,6 +38,8 @@ with import <nixpkgs> {};
 
     };
 
+    # ete3 = import ./requirements.nix { inherit pkgs; };
+
     ete3 = pkgs.python3Packages.buildPythonPackage rec {
       pname = "ete3";
       version = "3.1.1";
@@ -51,10 +54,15 @@ with import <nixpkgs> {};
         pyqt5
         lxml
         six
+        qt5.full
+        qt5.qtx11extras
+        qtcreator
       ];
 
-      nativeBuildInputs = with pkgs; [ cmake wrapQtAppsHook ];
+      nativeBuildInputs = [ qt5.wrapQtAppsHook python3.pkgs.wrapPython ];
 
+      doCheck = false;
+     
     };
 
 in pkgs.python3.buildEnv.override rec {
@@ -71,10 +79,10 @@ in pkgs.python3.buildEnv.override rec {
       ete3
       spacy
       spacy_models.en_core_web_lg
-      xorg.libxcb
-      pyqt5
-      qt5.full
-      qtcreator
-      qt5.qtx11extras
+      xorg.libxcb    # ETE3?
+      pyqt5          # ETE3?
+      qt5.full       # ETE3
+      qtcreator      # ETE3
+      qt5.qtx11extras # ETE3
     ];
   }).env
