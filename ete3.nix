@@ -14,17 +14,15 @@ pkgs.python3Packages.buildPythonPackage rec {
         numpy
         lxml
         six
-        pyqt4
-        pyqt4.qt
         pyqt5
+        xcffib
       ];
 
 
       nativeBuildInputs = with pkgs; [
-        qt48Full
         xorg.libxcb
-        qt4
-        qt5.full
+        qt5Full
+        qt5.wrapQtAppsHook
       ];
 
       doCheck = false;
