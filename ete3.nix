@@ -25,10 +25,10 @@ pkgs.python3Packages.buildPythonPackage rec {
         xorg.libxcb
         qt4
         qt5.full
-        qt5.qtx11extras
       ];
 
       doCheck = false;
+      ignoreCollisions = true;
 
       # Not sure if this is correct
       passthru = {
