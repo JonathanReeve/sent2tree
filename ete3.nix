@@ -10,7 +10,7 @@ pkgs.python3Packages.buildPythonPackage rec {
         sha256 = "11f3p5zkgjvsxi8kbscsaf286qx7vywwdiqk9gdgndka955ks2l7";
       };
 
-      buildInputs = with pkgs.python3Packages; [
+      propagatedBuildInputs = with pkgs.python3Packages; [
         numpy
         lxml
         six
@@ -18,6 +18,7 @@ pkgs.python3Packages.buildPythonPackage rec {
         pyqt4.qt
         pyqt5
       ];
+
 
       nativeBuildInputs = with pkgs; [
         qt48Full

@@ -22,6 +22,7 @@ with import <nixpkgs> {};
       ];
 
       doCheck = false;
+      ignoreCollisions = true;
 
     };
 
