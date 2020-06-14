@@ -1,5 +1,4 @@
 import ete3
-from ete3 import Tree, TreeStyle, TextFace, add_face_to_node
 
 class sentenceTree(): 
     def __init__(self, sent): 
@@ -38,7 +37,7 @@ class sentenceTree():
         textMode=False will show a graphical tree. 
         textmode=True will show an ASCII tree. 
         """
-        t = Tree(self.newick, format=1)
+        t = ete3.Tree(self.newick, format=1)
         if textMode: 
             print(t.get_ascii(show_internal=True))
         else:
