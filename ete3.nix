@@ -1,4 +1,4 @@
-{ pkgs, lib }:
+{ pkgs, lib, stdenv }:
 
 pkgs.python3Packages.buildPythonPackage rec {
 
@@ -21,12 +21,15 @@ pkgs.python3Packages.buildPythonPackage rec {
 
       nativeBuildInputs = with pkgs; [
         xorg.libxcb
-        qt5Full
+        # qt5Full
+        qt5.full
+        qtcreator
         qt5.wrapQtAppsHook
       ];
 
+      nativeInputs = [ pkgs.qt5.wrapQtAppsHook ];
+
       doCheck = false;
-      ignoreCollisions = true;
 
       # Not sure if this is correct
       passthru = {

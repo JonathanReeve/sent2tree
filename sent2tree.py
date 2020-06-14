@@ -41,13 +41,11 @@ class sentenceTree():
         if textMode: 
             print(t.get_ascii(show_internal=True))
         else:
-            t.render('sentence.png')
-            # ts = TreeStyle()
-            # ts.show_leaf_name = False
-            # #TODO: make this not be a function
-            # def my_layout(node):
-            #     F = TextFace(node.name, tight_text=False)
-            #     add_face_to_node(F, node, column=0, position="branch-right")
-            # ts.layout_fn = my_layout
-            # t.render('%%inline', tree_style=ts)
-            # return t, ts
+            ts = TreeStyle()
+            ts.show_leaf_name = False
+            #TODO: make this not be a function
+            def my_layout(node):
+               F = TextFace(node.name, tight_text=False)
+               add_face_to_node(F, node, column=0, position="branch-right")
+            ts.layout_fn = my_layout
+            t.render('sentence.png', tree_style=ts)
